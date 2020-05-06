@@ -34,22 +34,23 @@ CLI
         AAFFFFFF
         "
 
+
 template        
-########
+~~~~~~~~
 
 
 .. image:: docs/str-tem.png
 
 
 layout
-######
+~~~~~~
 
 
 .. image:: docs/layout-and-cfg-json.png
 
 
 generated-html
-##############
+~~~~~~~~~~~~~~
     
     ::
          
@@ -83,6 +84,8 @@ generated-html
                     justify-content:space-around;
         .............
 
+img
+###
 
 .. image:: docs/wb.png
 
@@ -96,7 +99,7 @@ generated-html
 
 
 generated-dflt-cfg
-##################
+~~~~~~~~~~~~~~~~~~
     
     ::
         
@@ -121,6 +124,9 @@ generated-dflt-cfg
         ......    
 
 
+
+img
+###
 
 .. image:: docs/cfg-json.png
 
