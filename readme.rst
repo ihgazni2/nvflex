@@ -44,11 +44,45 @@ template
 layout
 ######
 
+
 .. image:: docs/layout-and-cfg-json.png
 
 
 generated-html
 ##############
+    
+    ::
+         
+
+        <div
+            style="
+                display:flex;
+                flex-direction:row;
+                justify-content:space-around;
+                align-items:center;
+                flex:1;
+                width:100vw;
+                height:100vw;
+        
+            "
+        >
+            <button
+                type="button"
+                style="
+                    background-color:#336633;
+                    flex:2;
+                    height:100%;
+                "
+        
+            >
+            </button>
+            <div
+                style="
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:space-around;
+        .............
+
 
 .. image:: docs/wb.png
 
@@ -59,12 +93,38 @@ generated-html
 
 
 
+
+
 generated-dflt-cfg
 ##################
+    
+    ::
+        
+        {
+         "root":
+                 {
+                  "tag": "div",
+                  "style":
+                           {
+                            "height": "100vw",
+                            "width": "100vw"
+                           }
+                 },
+         "A":
+              {
+               "attrib":
+                         {
+                          "type": "button",
+                          "style":
+                                   {
+                                    "background-color": "#336633"
+        ......    
+
+
 
 .. image:: docs/cfg-json.png
 
-
+    
 
 API
 ===
