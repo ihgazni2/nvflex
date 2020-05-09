@@ -10,8 +10,10 @@ function get_dflt_cfg(s) {
     for(let k in clrd) {
         nclrd[k] = '#'+convert.ansi256.hex(clrd[k])
     }
+    let width = 50;
+    let height = 50 * (cmat.length/cmat[0].length);
     let cfg = {
-        root:{tag:'div',style:{height:'100vw',width:'100vw'}}
+        root:{tag:'div',style:{height:height+'vw',width:width+'vw'}}
     }
     for(let k in nclrd) {
         cfg[k] = {attrib:{type:'button',style:{'background-color':nclrd[k]}},tag:'button',text:''}

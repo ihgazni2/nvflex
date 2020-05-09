@@ -1,6 +1,6 @@
 {
   "name": "nvflex",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "generate flex layout from string",
   "main": "index.js",
   "dependencies": {
@@ -12,6 +12,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+      "docs",
+      "readme.rst",
+      "bin",
+      "*.js"
+  ],
   "bin": {
     "nvflex": "./bin/nvflex.bin.js"
   },
