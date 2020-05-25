@@ -29,6 +29,8 @@ function creat_root_flex(cfg,nd) {
     } else {
         flex =  flex + indent  +'width:'+ cfg.root.style.width +';' +'\n'
         flex =  flex + indent  +'height:'+ cfg.root.style.height +';' +'\n'
+        flex =  flex + indent  +'box-sizing:'+ cfg.root.style['box-sizing'] +';' +'\n'
+        flex =  flex + indent  +'background-color:'+ cfg.root.style['background-color'] +';' +'\n'
     }
     return(flex)
 }
@@ -100,9 +102,10 @@ function creat_stag(cfg,nd) {
     if(rune !== undefined) {
         tag = cfg[rune].tag? cfg[rune].tag:cfg.root.tag
         tag = '    '.repeat(depth) + '<'+tag + '\n'
-        let flex =  calc_flex(nd)
+        //let flex =  calc_flex(nd)
         let attrib = cfg[rune].attrib
-        attrib['style']['flex'] = flex
+        //attrib['style']['flex'] = flex
+        /*
         let hw = calc_hw(cfg,nd)
         if(hw.length >0 ) {
             attrib['style'][hw[0]] = hw[1]
@@ -110,6 +113,7 @@ function creat_stag(cfg,nd) {
             attrib['style'].height = cfg.root.style.height
             attrib['style'].width = cfg.root.style.width      
         }
+        */
         attrib = creat_attrib(attrib,'    '.repeat(depth))
         tag = tag + attrib+'\n'
         tag = tag + '    '.repeat(depth) +'>' +'\n'
@@ -118,6 +122,7 @@ function creat_stag(cfg,nd) {
         tag = '    '.repeat(depth) + '<'+tag + '\n'
         let attrib =  '    '.repeat(depth+1) + 'style="' + '\n' 
         attrib = attrib +  creat_root_flex(cfg,nd) + '\n'
+
         attrib = attrib +  '    '.repeat(depth+1) + '"' +'\n'
         tag = tag + attrib+'    '.repeat(depth) +'>' +'\n'
     }
@@ -153,6 +158,7 @@ function sedfs2html(cfg,sedfs) {
             html = html + creat_etag(cfg,sedfs[i])
         }
     }
+    html = html.replace(/\n+/g,'\n')
     return(html)
 }
 
