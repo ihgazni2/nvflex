@@ -32,7 +32,8 @@ function is_ladj_of(z0,z1) {
     let llngth = ledge.ey - ledge.sy + 1
     let cond0 = (llngth === rlngth)
     let cond1 = ((redge.sx + 1) === ledge.sx)
-    return(cond0 && cond1)
+    let cond2 = (z0.t === z1.t)
+    return(cond0 && cond1 && cond2)
 }
 
 function is_radj_of(z0,z1) {
@@ -46,7 +47,8 @@ function is_tadj_of(z0,z1) {
     let tlngth = tedge.ex - tedge.sx + 1
     let cond0 = (blngth === tlngth)
     let cond1 = ((bedge.ey + 1) === tedge.sy)
-    return(cond0 && cond1)
+    let cond2 = (z0.l === z1.l)
+    return(cond0 && cond1 && cond2)
 }
 
 function is_badj_of(z0,z1) {
