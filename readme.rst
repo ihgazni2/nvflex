@@ -5,6 +5,7 @@
 nvflex
 ------
 - generate html+inline-css  from a string template
+- only flex-related-css  and html generated,not any javascript included
 
 install
 -------
