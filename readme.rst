@@ -29,6 +29,9 @@ plain0
         * ##   ###     ###     ##        ##        ##        ##    ##  *
         * ##    ##      #      ##        ########  ########  ##    ##  *
         " --output nvflex
+        
+        #first use some character-genrator such as http://patorjk.com/software/taag/
+        #to genertator a txt-template(dont use some shell-forbidden chars suchas $)
 
 .. image:: docs/nvflex-0.png
 
