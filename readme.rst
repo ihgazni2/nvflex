@@ -16,12 +16,12 @@ install
 
 usage
 -----
-- nvflex_btn --input "<string rect template>" --cfg "<config json file name>" --output "<output filename>"
-- nvflex_border --input "<string rect template>" --cfg "<config json file name>" --output "<output filename>"
-- nvflex_plain --input "<string rect template>" --cfg "<config json file name>" --output "<output filename>"
-- nvflex_btn_inline --input "<string rect template>" --cfg "<config json file name>" --output "<output filename>"
-- nvflex_border_inline --input "<string rect template>" --cfg "<config json file name>" --output "<output filename>"
-- nvflex_plain_inline --input "<string rect template>" --cfg "<config json fle name>" --output "<output filename>"
+- nvflex_btn --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
+- nvflex_border --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
+- nvflex_plain --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
+- nvflex_btn_inline --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
+- nvflex_border_inline --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
+- nvflex_plain_inline --input "<string or txt-tem-file-name>" --cfg "<config-json-file-name>" --output "<output filename>"
 - cfg is optional
 
 CLI
@@ -122,8 +122,17 @@ generated-html
 img
 ###
 
+- bgn-img
+
 .. image:: docs/btn.png
+
+
+- border-img
+
 .. image:: docs/border.png
+
+- plain-img
+
 .. image:: docs/plain.png
 
 
