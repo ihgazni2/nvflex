@@ -106,7 +106,7 @@ layout
 ~~~~~~
 
 
-.. image:: docs/layout-and-cfg-json.png
+.. image:: docs/term-layout.png
 
 
 generated-html
