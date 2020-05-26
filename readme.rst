@@ -112,37 +112,12 @@ layout
 generated-html
 ~~~~~~~~~~~~~~
     
-    ::
-         
-
-        <div
-            style="
-                display:flex;
-                flex-direction:row;
-                justify-content:space-around;
-                align-items:center;
-                flex:1;
-                width:100vw;
-                height:100vw;
-        
-            "
-        >
-            <button
-                type="button"
-                style="
-                    background-color:#336633;
-                    flex:2;
-                    height:100%;
-                "
-        
-            >
-            </button>
-            <div
-                style="
-                    display:flex;
-                    flex-direction:column;
-                    justify-content:space-around;
-        .............
+- `nvflex_btn <docs/nvflex_btn.html>`_
+- `nvflex_border <docs/nvflex_btn.html>`_
+- `nvflex_plain <docs/nvflex_btn.html>`_
+- `nvflex_btn_inline <docs/nvflex_btn_inline.html>`_
+- `nvflex_border_inline <docs/nvflex_border_inline.html>`_
+- `nvflex_plain_inline <docs/nvflex_plain_inline.html>`_
 
 img
 ###
