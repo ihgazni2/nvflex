@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var yargs = require('yargs');
-var {s2html,playout,get_dflt_cfg} = require('../index.js')
+var {s2inline_html,playout,get_inline_dflt_cfg} = require('../index.js')
 var {rfile,wfile,rjson,wjson} = require('../util.js')
 
 argv = yargs.argv
@@ -20,8 +20,11 @@ var output = argv['output']
 if(output) {
     
 } else {
+    /*
     output = s
     output = output.replace(/\n/g,'_')
+    */
+    output = 'border'
 }
 
 
@@ -36,7 +39,7 @@ var cfg = argv['cfg']
 try {
     cfg = rjson(cfg)
 } catch(e) {
-    cfg = get_dflt_cfg(s)
+    cfg = undefined
 }
 wjson(output+'.cfg.json',cfg)
 console.log(cfg)
@@ -44,8 +47,7 @@ console.log("the layout cfg:\n")
 console.log(output+'.cfg.json')
 
 
-
-var d = s2html(s,cfg)
+var d = s2inline_html({tem:s,cfg:cfg,mode:'border'})
 wfile(output+'.html',d.html)
 
 

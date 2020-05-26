@@ -9,34 +9,8 @@ function is_etag(sedfs,i) {
     return(cond)
 }
 
-function creat_root_flex(cfg,nd) {
-    let indent = '    '.repeat(nd.$depth()+2) // depth + tag-indent + style-indent
-    let type = nd.zone.type
-    let flex = indent + 'display:flex;' + '\n'
-    if(type === 'row') {
-        flex = flex + indent + 'flex-direction:column;' + '\n'
-        flex = flex + indent + 'justify-content:space-around;' + '\n'
-        flex = flex + indent + 'align-items:center;' + '\n'
-    } else {
-        flex = flex + indent + 'flex-direction:row;' + '\n'
-        flex = flex + indent + 'justify-content:space-around;' + '\n'
-        flex = flex + indent + 'align-items:center;'  +'\n'       
-    }
-    flex =  flex + indent + 'flex:'+calc_flex(nd)+';' +'\n'
-    let hw = calc_hw(cfg,nd)
-    if(hw.length >0 ) {
-        flex =  flex + indent + hw[0] +':'+ hw[1]+';' +'\n'
-    } else {
-        flex =  flex + indent  +'width:'+ cfg.root.style.width +';' +'\n'
-        flex =  flex + indent  +'height:'+ cfg.root.style.height +';' +'\n'
-        flex =  flex + indent  +'box-sizing:'+ cfg.root.style['box-sizing'] +';' +'\n'
-        flex =  flex + indent  +'background-color:'+ cfg.root.style['background-color'] +';' +'\n'
-    }
-    return(flex)
-}
 
-
-function creat_css(style,indent) {
+function creat_css_str(style,indent) {
     let css = ""
     for(let k in style) {
         css = css+ indent + k+':'+style[k]+';' + '\n'
@@ -44,13 +18,14 @@ function creat_css(style,indent) {
     return(css)
 }
 
-function creat_attrib(attrib,indent) {
+
+function creat_attrib_str(attrib,indent) {
     let s = ''
     for(let k in attrib) {
         if(k === 'style') {
             let style_indent = '    ' + indent
             s = s + style_indent + 'style="' + '\n'
-            s = s + creat_css(attrib['style'],style_indent+'    ')
+            s = s + creat_css_str(attrib['style'],style_indent+'    ')
             s = s + style_indent + '"' + '\n' 
         } else {
             let attr_indent =  '    ' + indent
@@ -60,7 +35,9 @@ function creat_attrib(attrib,indent) {
     return(s)
 }
 
+
 function calc_hw(cfg,nd) {
+    //计算非root 容器的 高宽
     let p = nd.$parent()
     let depth = nd.$depth()
     let indent = '    '.repeat(depth+2)
@@ -79,6 +56,7 @@ function calc_hw(cfg,nd) {
 
 
 function calc_flex(nd) {
+    //计算flex:? 的值
     let p = nd.$parent()
     if(p !== null ) {
         let type = p.zone.type 
@@ -95,6 +73,40 @@ function calc_flex(nd) {
 }
 
 
+
+function creat_inline_container_attrib(cfg,nd) {
+    let rune = nd.zone.rune
+    let attrib = {}
+    attrib.style = {}
+    //
+    let hw = calc_hw(cfg,nd)
+    if(hw.length <=0 ) {
+        //root container
+        attrib.style['width'] = cfg.root.attrib.style.width
+        attrib.style['height'] = cfg.root.attrib.style.height
+        attrib.style['box-sizing'] = cfg.root.attrib.style['box-sizing']
+        attrib.style['background-color'] = cfg.root.attrib.style['background-color']
+    } else {
+        //non-root container
+        attrib.style[hw[0]] = hw[1]
+    }
+    //
+    attrib.style.display = 'flex'
+    attrib.style['justify-content'] = 'space-around'
+    attrib.style['align-items'] = 'center'
+    let type = nd.zone.type
+    if(type === 'row') {
+        attrib.style['flex-direction'] = 'column'
+    } else {
+        attrib.style['flex-direction'] = 'row'
+    }
+    attrib.style.flex = calc_flex(nd)
+    return(attrib)
+
+}
+
+
+
 function creat_stag(cfg,nd) {
     let tag = ''
     let rune = nd.zone.rune
@@ -102,40 +114,38 @@ function creat_stag(cfg,nd) {
     if(rune !== undefined) {
         tag = cfg[rune].tag? cfg[rune].tag:cfg.root.tag
         tag = '    '.repeat(depth) + '<'+tag + '\n'
-        //let flex =  calc_flex(nd)
         let attrib = cfg[rune].attrib
-        //attrib['style']['flex'] = flex
-        /*
-        let hw = calc_hw(cfg,nd)
-        if(hw.length >0 ) {
-            attrib['style'][hw[0]] = hw[1]
-        } else {
-            attrib['style'].height = cfg.root.style.height
-            attrib['style'].width = cfg.root.style.width      
-        }
-        */
-        attrib = creat_attrib(attrib,'    '.repeat(depth))
+        attrib = creat_attrib_str(attrib,'    '.repeat(depth))
         tag = tag + attrib+'\n'
         tag = tag + '    '.repeat(depth) +'>' +'\n'
     } else {
         tag = cfg.root.tag
         tag = '    '.repeat(depth) + '<'+tag + '\n'
-        let attrib =  '    '.repeat(depth+1) + 'style="' + '\n' 
-        attrib = attrib +  creat_root_flex(cfg,nd) + '\n'
-
-        attrib = attrib +  '    '.repeat(depth+1) + '"' +'\n'
+        let attrib = creat_inline_container_attrib(cfg,nd)
+        attrib = creat_attrib_str(attrib,'    '.repeat(depth))
         tag = tag + attrib+'    '.repeat(depth) +'>' +'\n'
     }
+    //text 看作 node的属性
+    //tail 看作 node的属性
+    //如果text 当作 独立textnode 不需要下面
     if( cfg[rune] && cfg[rune].text) {
         let text = cfg[rune].text
         tag = tag + '\n' 
         tag = tag + '    '.repeat(depth+1) + text +'\n'
     }
+    if( cfg[rune] && cfg[rune].tail) {
+        let tail = cfg[rune].tail
+        tag = tag + '\n'
+        tag = tag + '    '.repeat(depth) + tail +'\n'
+    }    
     return(tag)
 }
 
 
 function creat_etag(cfg,nd) {
+    /*
+     * 如果text 当作独立的textnode, 创建tree的时候需要标注类型 是否为textnode
+     */
     let tag = ''
     let rune = nd.zone.rune
     let depth = nd.$depth()
@@ -149,7 +159,28 @@ function creat_etag(cfg,nd) {
     return(tag)
 }
 
-function sedfs2html(cfg,sedfs) {
+function sedfs2inline_html(cfg,sedfs) {
+    /*
+     * var oTextNode = document.createTextNode("XXXX")
+     * oTextNode.nodeType 3
+     * oTextNode.TEXT_NODE 3
+     *
+     * 如果使用独立textnode
+     *
+     * 需要加入一个判断is_txt
+     *
+     * Node.ELEMENT_NODE
+     * Node.TEXT_NODE
+     * Node.COMMENT_NODE
+     *
+     *
+     * Node.DOCUMENT_NODE
+     * Node.CDATA_SECTION_NODE
+     * Node.DOCUMENT_TYPE_NODE                        <!DOCTYPE html>
+     * Node.DOCUMENT_FRAGMENT_NODE                    
+     *     DocumentFragment 不是真实 DOM 树的一部分，它的变化不会触发 DOM 树的重新渲染，且不会导致性能等问题 
+     * Node.PROCESSING_INSTRUCTION_NODE               <?xml-stylesheet ... ?>
+     */
     let html =''
     for(let i=0;i<sedfs.length;i++) {
         if(is_stag(sedfs,i)) {
@@ -168,9 +199,10 @@ module.exports = {
     is_etag,
     creat_stag,
     creat_etag,
-    creat_css,
-    creat_attrib,
-    creat_root_flex,
+    creat_css_str,
+    creat_attrib_str,
+    creat_inline_container_attrib,
+    calc_hw,
     calc_flex,
-    sedfs2html,
+    sedfs2inline_html,
 }
