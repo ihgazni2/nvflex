@@ -227,7 +227,29 @@ generated-dflt-cfg
 - `nvflex_plain_inline.cfg.json <docs/plain_inline.cfg.json>`_
 
 
- 
+DIFFRENCE-BETWEEN INLINE AND OUTBAND
+====================================
+
+outband
+~~~~~~~
+
+- generate seperated css in head
+- nvflex_btn
+- nvflex_border
+- nvflex_plain
+
+.. image:: docs/outband-html.png
+
+inline
+~~~~~~
+- css is in style="..." in each element
+- nvflex_btn_inline
+- nvflex_border_inline
+- nvflex_plain_inline
+
+.. image:: docs/inline-html.png
+
+
 
 API
 ===
