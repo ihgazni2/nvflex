@@ -11,7 +11,22 @@ install
 - npm install -g nvflex
 
 
+examples
+--------
 
+0
+==
+    
+    ::
+        
+        nvflex_btn_inline --input "
+        ****@@@@****
+        ****@@@@****
+        ####@@@@####
+        ####@@@@####"  --output btn-example-0
+
+
+.. image:: docs/btn-example-0.png
 
 
 usage
