@@ -254,7 +254,7 @@ RESTRICT
 - DONT use shell-cmd-characters, such as $
 - if a tem include the-below pattern,it could not be aggregate two->one
 
-.. image:: docs/not-supported.png
+.. image:: docs/not-support.png
 
 API
 ===
