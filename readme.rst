@@ -15,8 +15,8 @@ install
 examples
 --------
 
-plain0
-======
+plain
+=====
     
     ::
 
@@ -34,6 +34,26 @@ plain0
         #to genertator a txt-template(dont use some shell-forbidden chars suchas $)
 
 .. image:: docs/nvflex-0.png
+
+
+
+border
+======
+    
+    ::
+        
+        nvflex_border_inline --input "
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        TTTTTTTTttttttttTTTTTTTT
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        VVVVVVVV@@@@@@@@VVVVVVVV
+        TTTTTTTTttttttttTTTTTTTT
+        " --output border
+
+.. image:: docs/border-0.png
 
 
 btn0
