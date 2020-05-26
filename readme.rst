@@ -99,7 +99,7 @@ template
 ~~~~~~~~
 
 
-.. image:: docs/str-tem.png
+.. image:: docs/str-tem-blocks.png
 
 
 layout
