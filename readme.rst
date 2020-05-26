@@ -14,8 +14,8 @@ install
 examples
 --------
 
-0
-==
+btn0
+====
     
     ::
         
@@ -27,6 +27,28 @@ examples
 
 
 .. image:: docs/btn-example-0.png
+
+
+
+
+
+btn1
+====
+    
+    ::
+        
+        nvflex_btn_inline --input "
+        AA @ @ @ @ @
+        BB#####%%%%%
+        CC#####%%%%%
+        DD----------
+        EE%%%%%#####
+        FF%%%%%#####"  --output btn-example-1
+
+.. image:: docs/btn-example-1.png
+
+
+
 
 
 usage
