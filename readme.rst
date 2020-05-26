@@ -249,7 +249,9 @@ inline
 
 .. image:: docs/inline-html.png
 
-
+RESTRICT
+========
+- DONT use shell-cmd-characters, such as $
 
 API
 ===
