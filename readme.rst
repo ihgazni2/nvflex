@@ -112,59 +112,37 @@ layout
 generated-html
 ~~~~~~~~~~~~~~
     
-- `nvflex_btn <docs/nvflex_btn.html>`_
-- `nvflex_border <docs/nvflex_btn.html>`_
-- `nvflex_plain <docs/nvflex_btn.html>`_
-- `nvflex_btn_inline <docs/nvflex_btn_inline.html>`_
-- `nvflex_border_inline <docs/nvflex_border_inline.html>`_
-- `nvflex_plain_inline <docs/nvflex_plain_inline.html>`_
+- `nvflex_btn.html <docs/btn.html>`_
+- `nvflex_border.html <docs/border.html>`_
+- `nvflex_plain.html <docs/plain.html>`_
+- `nvflex_btn_inline.html <docs/btn_inline.html>`_
+- `nvflex_border_inline.html <docs/border_inline.html>`_
+- `nvflex_plain_inline.html <docs/plain_inline.html>`_
 
 img
 ###
 
-.. image:: docs/wb.png
-
-.. image:: docs/fn.png
-
-.. image:: docs/html.png
-
+.. image:: docs/btn.png
+.. image:: docs/border.png
+.. image:: docs/plain.png
+.. image:: docs/btn_inline.png
+.. image:: docs/border_inline.png
+.. image:: docs/plain_inline.png
 
 
 
 
 generated-dflt-cfg
 ~~~~~~~~~~~~~~~~~~
-    
-    ::
-        
-        {
-         "root":
-                 {
-                  "tag": "div",
-                  "style":
-                           {
-                            "height": "100vw",
-                            "width": "100vw"
-                           }
-                 },
-         "A":
-              {
-               "attrib":
-                         {
-                          "type": "button",
-                          "style":
-                                   {
-                                    "background-color": "#336633"
-        ......    
+- `nvflex_btn.cfg.json <docs/btn.cfg.json>`_
+- `nvflex_border.cfg.json <docs/border.cfg.json>`_
+- `nvflex_plain.cfg.json <docs/plain.cfg.json>`_
+- `nvflex_btn_inline.cfg.json <docs/btn_inline.cfg.json>`_
+- `nvflex_border_inline.cfg.json <docs/border_inline.cfg.json>`_
+- `nvflex_plain_inline.cfg.json <docs/plain_inline.cfg.json>`_
 
 
-
-img
-###
-
-.. image:: docs/cfg-json.png
-
-    
+ 
 
 API
 ===
