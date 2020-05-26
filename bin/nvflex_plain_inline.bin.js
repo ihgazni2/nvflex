@@ -39,7 +39,7 @@ var cfg = argv['cfg']
 try {
     cfg = rjson(cfg)
 } catch(e) {
-    cfg = undefined 
+    cfg = get_inline_dflt_cfg(s,'plain') 
 }
 wjson(output+'.cfg.json',cfg)
 console.log(cfg)
