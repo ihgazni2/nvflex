@@ -66,6 +66,28 @@ let html_tem=`
                 transition: 0.3s;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             }
+            .img-leaf {
+                background-color:${cfg.root.attrib.style['background-color']};
+                height:calc(100% - 2vw);
+                width:calc(100% - 2vw);
+                box-sizing:border-box;
+                border-radius:5px;
+                border:solid 2px #ffffff;
+                transition: 0.3s;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image:url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');
+            }
+            .plain-img-leaf {
+                background-color:${cfg.root.attrib.style['background-color']};
+                height:100%;
+                width:100%;
+                box-sizing:border-box;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image:url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');
+            }
         </style>
     </head>
     <body>

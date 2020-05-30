@@ -59,6 +59,90 @@ function creat_inline_leaf_cfg(k,cfg,nclrd,mode) {
             text:'',
             tail:''
         }
+    } else if(mode === 'img-contain') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                style:{
+                    'background-color':cfg.root.attrib.style['background-color'],
+                    'box-sizing':'border-box',
+                    'height':'calc(100% - 2vw)',
+                    'width':'calc(100% - 2vw)',
+                    'border':'solid 2px #ffffff',
+                    'border-radius':'5px',
+                    'transition': '0.3s',
+                    'box-shadow': '0 4px 8px 0 rgba(0,0,0,0.2)',
+                    'background-repeat': 'no-repeat',
+                    'background-size': 'contain',
+                    'background-position': 'center',
+                    'background-image':"url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');"
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'img-cover') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                style:{
+                    'background-color':cfg.root.attrib.style['background-color'],
+                    'box-sizing':'border-box',
+                    'height':'calc(100% - 2vw)',
+                    'width':'calc(100% - 2vw)',
+                    'border':'solid 2px #ffffff',
+                    'border-radius':'5px',
+                    'transition': '0.3s',
+                    'box-shadow': '0 4px 8px 0 rgba(0,0,0,0.2)',
+                    'background-repeat': 'no-repeat',
+                    'background-size': 'cover',
+                    'background-position': 'center',
+                    'background-image':"url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');"
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'plain-img-contain') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                style:{
+                    'background-color':cfg.root.attrib.style['background-color'],
+                    'box-sizing':'border-box',
+                    'height':'100%',
+                    'width':'100%',
+                    'background-repeat': 'no-repeat',
+                    'background-size': 'contain',
+                    'background-position': 'center',
+                    'background-image':"url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');"
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'plain-img-cover') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                style:{
+                    'background-color':cfg.root.attrib.style['background-color'],
+                    'box-sizing':'border-box',
+                    'height':'100%',
+                    'width':'100%',
+                    'background-repeat': 'no-repeat',
+                    'background-size': 'contain',
+                    'background-position': 'cover',
+                    'background-image':"url('http://5b0988e595225.cdn.sohucs.com/images/20190204/ecf26954de514afe8c6992b66d446a25.jpeg');"
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
     } else {
         cfg = {
             attrib:{
@@ -110,7 +194,59 @@ function creat_outband_leaf_cfg(k,cfg,nclrd,mode) {
             text:'',
             tail:''
         }        
-    }    else {
+    } else if(mode === 'img-contain') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                class:'img-leaf',
+                style:{
+                    'background-size':'contain'
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'img-cover') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                class:'img-leaf',
+                style:{
+                    'background-size':'cover'
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'plain-img-contain') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                class:'plain-img-leaf',
+                style:{
+                    'background-size':'contain'
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else if(mode === 'plain-img-cover') {
+        cfg.root.attrib.style['background-color'] = "#ffffff"
+        cfg = {
+            attrib:{
+                class:'plain-img-leaf',
+                style:{
+                    'background-size':'cover'
+                }
+            },
+            tag:'div',
+            text:'',
+            tail:''
+        }
+    } else {
         cfg = {
             attrib:{
                 class:'plain-leaf',

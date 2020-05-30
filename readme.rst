@@ -107,6 +107,67 @@ card-magic-1
 .. image:: docs/card-magic-0.png
 
 
+img
+===
+
+img-contain
+~~~~~~~~~~~
+    
+    ::
+        
+        nvflex_img_contain --input "
+        **@@**@@*#*#
+        **@@**@@*#*#
+        **@@**@@#%@%
+        **@@**@@#%@%"  --output img-contain-example
+
+
+.. image:: docs/img-contain-example.png
+
+
+img-cover
+~~~~~~~~~
+    
+    ::
+    
+        nvflex_img_cover --input "
+        ###@@UUUU
+        ###@@U  U
+        ###%%U  U
+        ###%%UUUU"  --output img-cover-example
+
+
+.. image:: docs/img-cover-example.png
+
+
+plain-img-contain
+~~~~~~~~~~~~~~~~~
+    
+    ::
+        
+        nvflex_plain_img_contain --input "
+        ###@@UUUU
+        ###@@U  U
+        ###%%U  U
+        ###%%UUUU"  --output plain-img-contain
+        
+
+.. image:: docs/plain-img-contain-example.png
+
+
+plain-img-cover
+~~~~~~~~~~~~~~~
+    
+    ::
+        
+        nvflex_plain_img_cover --input "
+        ###@@UUUU
+        ###@@U  U
+        ###%%U  U
+        ###%%UUUU"  --output plain-img-cover
+
+
+.. image:: docs/plain-img-cover-example.png
 
 
 

@@ -1,6 +1,6 @@
 {
   "name": "nvflex",
-  "version": "1.1.4",
+  "version": "1.1.11",
   "description": "generate flex layout from string",
   "main": "index.js",
   "dependencies": {
@@ -25,10 +25,18 @@
     "nvflex_border": "./bin/nvflex_border.bin.js",
     "nvflex_plain": "./bin/nvflex_plain.bin.js",
     "nvflex_card": "./bin/nvflex_card.bin.js",
+    "nvflex_img_contain": "./bin/nvflex_img_contain.bin.js",
+    "nvflex_img_cover": "./bin/nvflex_img_cover.bin.js",
+    "nvflex_plain_img_contain": "./bin/nvflex_plain_img_contain.bin.js",
+    "nvflex_plain_img_cover": "./bin/nvflex_plain_img_cover.bin.js",
     "nvflex_btn_inline": "./bin/nvflex_btn_inline.bin.js",
     "nvflex_border_inline": "./bin/nvflex_border_inline.bin.js",
     "nvflex_plain_inline": "./bin/nvflex_plain_inline.bin.js",
-    "nvflex_card_inline": "./bin/nvflex_card_inline.bin.js"
+    "nvflex_card_inline": "./bin/nvflex_card_inline.bin.js",
+    "nvflex_img_contain_inline": "./bin/nvflex_img_contain_inline.bin.js",
+    "nvflex_img_cover_inline": "./bin/nvflex_img_cover_inline.bin.js",
+    "nvflex_plain_img_contain_inline": "./bin/nvflex_plain_img_contain_inline.bin.js",
+    "nvflex_plain_img_cover_inline": "./bin/nvflex_plain_img_cover_inline.bin.js"
   },
   "repository": {
     "type": "git",
