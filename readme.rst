@@ -104,7 +104,7 @@ card-magic-1
         ############"  --output card-magic-1
 
 
-.. image:: docs/card-magic-1.png
+.. image:: docs/card-magic-0.png
 
 
 
