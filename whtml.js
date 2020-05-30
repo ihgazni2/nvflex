@@ -1,3 +1,81 @@
+function wrap(root_str,cfg) {
+let html_tem=`
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                margin:0;
+            }
+            .root {
+                display:flex;
+                flex-direction:column;
+                justify-content:space-around;
+                align-items:center;
+                flex:1;
+                width:${cfg.root.attrib.style.width};
+                height:${cfg.root.attrib.style.height};
+                background-color:${cfg.root.attrib.style['background-color']};
+            }
+            .rows-container {
+                display:flex;
+                flex-direction:column;
+                justify-content:space-around;
+                align-items:center;
+                box-sizing:border-box;
+            }
+            .columns-container {
+                display:flex;
+                flex-direction:row;
+                justify-content:space-around;
+                align-items:center;
+                box-sizing:border-box;
+            }
+            .row {
+                width:100%;
+            }
+            .column {
+                height:100%;
+            }
+            .plain-leaf {
+                box-sizing:border-box;
+                height:100%;
+                width:100%;
+            }
+            .btn-leaf {
+                height:calc(100% - 2vw);
+                width:calc(100% - 2vw);
+                box-sizing:border-box;
+                border-radius:1vw;
+                border:solid 0.1vw #ffffff;
+            }
+            .border-leaf {
+                background-color:${cfg.root.attrib.style['background-color']};
+                height:calc(100% - 2vw);
+                width:calc(100% - 2vw);
+                box-sizing:border-box;
+                border-radius:1vw;
+                border:solid 0.1vw #ffffff;
+            }
+            .card-leaf {
+                background-color:${cfg.root.attrib.style['background-color']};
+                height:calc(100% - 2vw);
+                width:calc(100% - 2vw);
+                box-sizing:border-box;
+                border-radius:5px;
+                border:solid 2px #ffffff;
+                transition: 0.3s;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+        </style>
+    </head>
+    <body>
+${root_str}
+    </body>
+</html>`
+    return(html_tem)
+}
+
+
 function is_stag(sedfs,i) {
     let cond = (sedfs[i].$open_at === i)
     return(cond)
@@ -102,12 +180,44 @@ function creat_inline_container_attrib(cfg,nd) {
     }
     attrib.style.flex = calc_flex(nd)
     return(attrib)
+}
+
+
+function creat_outband_container_attrib(cfg,nd) {
+    let rune = nd.zone.rune
+    let attrib = {}
+    attrib.style = {}
+    //
+    let hw = calc_hw(cfg,nd)
+    if(hw.length <=0 ) {
+        //root container
+        attrib.class = "root" 
+    } else {
+        //non-root container
+        if(hw[0] === 'height') {
+            attrib.class = "column"
+        } else {
+            attrib.class = "row"
+        }
+    }
+    //
+    let type = nd.zone.type
+    if(type === 'row') {
+        attrib.class = attrib.class + ' ' + 'rows-container'
+    } else {
+        attrib.class = attrib.class + ' ' + 'columns-container'
+    }
+    attrib.style.flex = calc_flex(nd)
+    return(attrib)
 
 }
 
 
 
-function creat_stag(cfg,nd) {
+
+
+
+function creat_stag(cfg,nd,inline=true) {
     let tag = ''
     let rune = nd.zone.rune
     let depth = nd.$depth()
@@ -121,7 +231,7 @@ function creat_stag(cfg,nd) {
     } else {
         tag = cfg.root.tag
         tag = '    '.repeat(depth) + '<'+tag + '\n'
-        let attrib = creat_inline_container_attrib(cfg,nd)
+        let attrib = inline?creat_inline_container_attrib(cfg,nd):creat_outband_container_attrib(cfg,nd)
         attrib = creat_attrib_str(attrib,'    '.repeat(depth))
         tag = tag + attrib+'    '.repeat(depth) +'>' +'\n'
     }
@@ -184,7 +294,7 @@ function sedfs2inline_html(cfg,sedfs) {
     let html =''
     for(let i=0;i<sedfs.length;i++) {
         if(is_stag(sedfs,i)) {
-            html = html + creat_stag(cfg,sedfs[i])
+            html = html + creat_stag(cfg,sedfs[i],true)
         } else {
             html = html + creat_etag(cfg,sedfs[i])
         }
@@ -192,6 +302,21 @@ function sedfs2inline_html(cfg,sedfs) {
     html = html.replace(/\n+/g,'\n')
     return(html)
 }
+
+function sedfs2outband_html(cfg,sedfs) {
+    let html =''
+    for(let i=0;i<sedfs.length;i++) {
+        if(is_stag(sedfs,i)) {
+            html = html + creat_stag(cfg,sedfs[i],false)
+        } else {
+            html = html + creat_etag(cfg,sedfs[i])
+        }
+    }
+    html = html.replace(/\n+/g,'\n')
+    html = wrap(html,cfg)
+    return(html)
+}
+
 
 
 module.exports = {
@@ -205,4 +330,7 @@ module.exports = {
     calc_hw,
     calc_flex,
     sedfs2inline_html,
+    wrap,
+    creat_outband_container_attrib,
+    sedfs2outband_html,
 }

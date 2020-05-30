@@ -36,6 +36,79 @@ plain
 .. image:: docs/nvflex-0.png
 
 
+card
+====
+
+card0
+~~~~~
+    
+    ::
+
+        nvflex_card --input "
+        ****@@@@****
+        ****@@@@****
+        ####@@@@####
+        ####@@@@####"  --output card-example-0
+
+.. image:: docs/card-example-0.png
+
+
+card1
+~~~~~
+    
+    ::
+
+        nvflex_card --input "
+        AA @ @ @ @ @
+        BB#####%%%%%
+        CC#####%%%%%
+        DD----------
+        EE%%%%%#####
+        FF%%%%%#####"  --output card-example-1
+
+.. image:: docs/card-example-1.png
+
+
+
+card-magic-0
+~~~~~~~~~~~~
+    
+    ::
+
+        nvflex_card --input "
+        ##%%%%%%%%##
+        ##   @    ##
+        ##   %    ##
+        ##****    ##
+        %%%%%%%%%%##"  --output card-magic-0
+
+
+.. image:: docs/card-magic-0.png
+
+
+
+
+card-magic-1
+~~~~~~~~~~~~
+- this pattern equals to `card-magic-0`_
+- its a little puzzled
+- playmore and you will find the fules
+    
+    ::
+
+        nvflex_card --input "
+        ############
+        ##        ##
+        ##   @    ##
+        ##        ##
+        ############"  --output card-magic-1
+
+
+.. image:: docs/card-magic-1.png
+
+
+
+
 
 border
 ======
@@ -55,9 +128,11 @@ border
 
 .. image:: docs/border-0.png
 
+btn
+===
 
 btn0
-====
+~~~~
     
     ::
         
@@ -75,7 +150,7 @@ btn0
 
 
 btn1
-====
+~~~~
     
     ::
         

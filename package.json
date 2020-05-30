@@ -1,6 +1,6 @@
 {
   "name": "nvflex",
-  "version": "1.0.30",
+  "version": "1.1.4",
   "description": "generate flex layout from string",
   "main": "index.js",
   "dependencies": {
@@ -16,15 +16,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "docs",
     "readme.rst",
     "bin",
     "*.js"
   ],
   "bin": {
+    "nvflex_btn": "./bin/nvflex_btn.bin.js",
+    "nvflex_border": "./bin/nvflex_border.bin.js",
+    "nvflex_plain": "./bin/nvflex_plain.bin.js",
+    "nvflex_card": "./bin/nvflex_card.bin.js",
     "nvflex_btn_inline": "./bin/nvflex_btn_inline.bin.js",
     "nvflex_border_inline": "./bin/nvflex_border_inline.bin.js",
-    "nvflex_plain_inline": "./bin/nvflex_plain_inline.bin.js"
+    "nvflex_plain_inline": "./bin/nvflex_plain_inline.bin.js",
+    "nvflex_card_inline": "./bin/nvflex_card_inline.bin.js"
   },
   "repository": {
     "type": "git",

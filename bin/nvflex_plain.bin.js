@@ -24,7 +24,7 @@ if(output) {
     output = s
     output = output.replace(/\n/g,'_')
     */
-    output = 'btn'
+    output = 'plain'
 }
 
 
@@ -39,7 +39,7 @@ var cfg = argv['cfg']
 try {
     cfg = rjson(cfg)
 } catch(e) {
-    cfg = get_dflt_cfg({tem:s,mode:'btn',inline:true}) 
+    cfg = get_dflt_cfg({tem:s,mode:'plain',inline:false}) 
 }
 wjson(output+'.cfg.json',cfg)
 console.log(cfg)
@@ -47,7 +47,7 @@ console.log("the layout cfg:\n")
 console.log(output+'.cfg.json')
 
 
-var d = s2html({tem:s,cfg:cfg,mode:'btn',inline:true})
+var d = s2html({tem:s,cfg:cfg,mode:'plain',inline:false})
 wfile(output+'.html',d.html)
 
 
